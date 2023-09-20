@@ -7,12 +7,18 @@ void frees_the_stack(stack_t *stck)
 {
 	stack_t *next;
 
-	while (stck != NULL)
+	if (stck == NULL)
 	{
-		next = stck->next;
-		free(stck);
-		stck = next;
+		return;
 	}
+
+	while (stck)
+	{
+		next = stck;
+		stck = stck->next;
+		free(next);
+	}
+	free(stck);
 }
 /**
  * check - check if a string consists of integers
@@ -33,6 +39,7 @@ int check(char *s)
 		{
 			return (1);
 		}
+		count++;
 	}
 	return (0);
 }

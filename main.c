@@ -9,9 +9,9 @@ int main(int argc, char **argv)
 {
 
 	FILE *Sf;
-	char *buffer = NULL, *opcode;
+	char buff[1024], *opcode;
 	int tracker = 0;
-	stack_t *stack = 0;
+	stack_t *stack = NULL;
 	const char *DELIM = " \t\n";
 
 	if (argc != 2)
@@ -25,10 +25,10 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (fgets(buffer, MAX_SIZE, Sf))
+	while (fgets(buff, 1024, Sf))
 	{
 		tracker++;
-		opcode = strtok(buffer, DELIM);
+		opcode = strtok(buff, DELIM);
 		if (comm(opcode, tracker) == 1)
 		{
 			continue;

@@ -5,7 +5,7 @@
  * @ln: line number
  * @tracker: tracker
 */
-void push(stack_t **stck, char *ln, unsigned int tracker)
+void push(char *ln, stack_t **stck, unsigned int tracker)
 {
 	int count;
 	stack_t *new_stack = NULL;

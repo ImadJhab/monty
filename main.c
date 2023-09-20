@@ -10,7 +10,7 @@ int main(int argc, char **argv)
 {
 
 	FILE *Sf;
-	char *buffer = NULL, *n, *opcode;
+	char *buffer = NULL, *opcode;
 	int tracker = 0;
 	stack_t *stack = 0;
 
@@ -33,14 +33,9 @@ int main(int argc, char **argv)
 		{
 			continue;
 		}
-		else if (!strcmp(opcode, "push"))
+		else if (opcode)
 		{
-			n = strtok(NULL, DELIM);
-			push(&stack, n, tracker);
-		}
-		else
-		{
-			opcode_finder(&stack, opcode, tracker);
+			opcode_finder(opcode, &stack, tracker);
 		}
 	}
 	fclose(Sf);
@@ -54,23 +49,17 @@ int main(int argc, char **argv)
  * @tracker: tracker
  * Return: EXIT_SUCCESS
 */
-int opcode_finder(stack_t **stck, char *opcode, int tracker)
+void opcode_finder(char *opcode, stack_t **stck, int tracker)
 {
-	int count;
-	instruction_t codes[] = {
-		{"pall", pall},
-		{NULL, NULL}
-	};
-	for (count = 0; codes[count].opcode; count++)
+	if (strcmp(opcode, "push") == 0)
+		push(opcode, stck, tracker);
+	else if (strcmp(opcode, "pall") == 0)
+		pall(stck, tracker);
+	else
 	{
-		if (strcmp(opcode, codes[count].opcode) == 0)
-		{
-			(codes[count].f)(stck, tracker);
-			return (EXIT_SUCCESS);
-		}
+		fprintf(stderr, "L%d: unknown instruction %s\n", tracker, opcode);
+		exit(EXIT_FAILURE);
 	}
-	fprintf(stderr, "L%d: unknown instruction %s\n", tracker, opcode);
-	exit(EXIT_FAILURE);
 }
 /**
  * comm - is comment

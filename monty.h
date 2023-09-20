@@ -38,8 +38,8 @@ typedef struct instruction_s
 } instruction_t;
 
 void frees_the_stack(stack_t *stck);
-void push(stack_t **stck, char *n, unsigned int tracker);
-int opcode_finder(stack_t **stck, char *opcode, int tracker);
+void push(char *ln, stack_t **stck, unsigned int tracker);
+void opcode_finder(char *opcode, stack_t **stck, int tracker);
 void pall(stack_t **stck, unsigned int tracker);
 int comm(char *tok, int count);
 

@@ -73,10 +73,10 @@ int opcode_finder(stack_t **stck, char *opcode, int tracker)
 	exit(EXIT_FAILURE);
 }
 /**
- * is_comm - is comment
- * @token: token
- * @line_count: num of lines
- * Return: integer
+ * comm - is comment
+ * @tok: token
+ * @count: num of lines
+ * Return: 1 or -1
  */
 int comm(char *tok, int count)
 {

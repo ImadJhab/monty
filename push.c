@@ -7,8 +7,28 @@
 */
 void push(char *ln, stack_t **stck, unsigned int tracker)
 {
-	int count;
-	stack_t *new_stack = NULL;
+	int n;
+
+	ln = strtok(NULL, " \t\n");
+	if (!ln || check(ln) == 1)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", tracker);
+		exit(EXIT_FAILURE);
+	}
+	n = atoi(ln);
+	PUSH_VAL = n;
+	help_push(stck, tracker);
+}
+/**
+ * help_push - helps the push func
+ * @stck: head of the stack
+ * @tracker: void
+ * Return: none
+ */
+void help_push(stack_t **stck, unsigned int tracker)
+{
+	stack_t *new_stack;
+	(void)tracker;
 
 	new_stack = malloc(sizeof(stack_t));
 	if (new_stack == NULL)
@@ -16,29 +36,11 @@ void push(char *ln, stack_t **stck, unsigned int tracker)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	if (ln == NULL)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", tracker);
-		exit(EXIT_FAILURE);
-	}
-	for (count = 0; ln[count]; count++)
-	{
-		if (ln[0] == '-' && count == 0)
-		{
-			continue;
-		}
-		if (ln[count] < 48 || ln[count] > 57)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", tracker);
-			exit(EXIT_FAILURE);
-		}
-	}
-	new_stack->n = atoi(ln);
+	new_stack->n = PUSH_VAL;
 	new_stack->prev = NULL;
-	new_stack->next = NULL;
-	if (*stck != NULL)
+	new_stack->next = *stck;
+	if (*stck)
 	{
-		new_stack->next = *stck;
 		(*stck)->prev = new_stack;
 	}
 	*stck = new_stack;

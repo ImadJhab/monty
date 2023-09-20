@@ -1,12 +1,14 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#define MAX_SIZE 1024
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+
+#define MAX_SIZE 1024
+
+extern int PUSH_VAL;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -39,8 +41,10 @@ typedef struct instruction_s
 
 void frees_the_stack(stack_t *stck);
 void push(char *ln, stack_t **stck, unsigned int tracker);
+void help_push(stack_t **stck, unsigned int tracker);
 void opcode_finder(char *opcode, stack_t **stck, int tracker);
 void pall(stack_t **stck, unsigned int tracker);
 int comm(char *tok, int count);
+int check(char *s);
 
 #endif

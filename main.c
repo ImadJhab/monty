@@ -58,7 +58,8 @@ int opcode_finder(stack_t **stck, char *opcode, int tracker)
 {
 	int count;
 	instruction_t codes[] = {
-		{"pall", pall}
+		{"pall", pall},
+		{NULL, NULL}
 	};
 	for (count = 0; codes[count].opcode; count++)
 	{

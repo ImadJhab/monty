@@ -7,15 +7,10 @@ void frees_the_stack(stack_t *stck)
 {
 	stack_t *next;
 
-	if (stck == NULL)
+	while (stck != NULL)
 	{
-		return;
+		next = stck->next;
+		free(stck);
+		stck = next;
 	}
-	while (stck)
-	{
-		next = stck;
-		stck = stck->next;
-		free(next);
-	}
-	free(stck);
 }

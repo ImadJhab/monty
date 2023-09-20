@@ -55,6 +55,8 @@ void opcode_finder(char *opcode, stack_t **stck, int tracker)
 		push(opcode, stck, tracker);
 	else if (strcmp(opcode, "pall") == 0)
 		pall(stck, tracker);
+	else if (strcmp(opcode, "pint") == 0)
+		pint(stck, tracker);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", tracker, opcode);

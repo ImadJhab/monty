@@ -46,5 +46,6 @@ void opcode_finder(char *opcode, stack_t **stck, int tracker);
 void pall(stack_t **stck, unsigned int tracker);
 int comm(char *tok, int count);
 int check(char *s);
+void pint(stack_t **stck, unsigned int tracker);
 
 #endif

@@ -8,7 +8,7 @@
 void push(stack_t **stck, char *ln, unsigned int tracker)
 {
 	int count;
-	stack_t *new_stack;
+	stack_t *new_stack = NULL;
 
 	new_stack = malloc(sizeof(stack_t));
 	if (new_stack == NULL)

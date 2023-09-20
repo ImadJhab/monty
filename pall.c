@@ -9,6 +9,11 @@ void pall(stack_t **stck, unsigned int tracker)
 	stack_t *current = *stck;
 	(void)tracker;
 
+	if (stck == NULL || *stck == NULL)
+	{
+		return;
+	}
+
 	while (current)
 	{
 		printf("%d\n", current->n);

@@ -1,5 +1,4 @@
 #include "monty.h"
-#define DELIM " \t\n"
 /**
  * main - main function of monty
  * @argc: argv size
@@ -13,6 +12,7 @@ int main(int argc, char **argv)
 	char *buffer = NULL, *opcode;
 	int tracker = 0;
 	stack_t *stack = 0;
+	const char *DELIM = " \t\n";
 
 	if (argc != 2)
 	{
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 		{
 			continue;
 		}
-		else if (opcode)
+		if (opcode)
 		{
 			opcode_finder(opcode, &stack, tracker);
 		}

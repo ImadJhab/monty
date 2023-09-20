@@ -41,5 +41,6 @@ void frees_the_stack(stack_t *stck);
 void push(stack_t **stck, char *n, unsigned int tracker);
 int opcode_finder(stack_t **stck, char *opcode, int tracker);
 void pall(stack_t **stck, unsigned int tracker);
+int comm(char *tok, int count);
 
 #endif

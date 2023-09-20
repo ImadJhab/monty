@@ -17,19 +17,19 @@ int main(int argc, char **argv)
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		return (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	Sf = fopen(argv[1], "r");
-	if (Sf == NULL)
+	if (!Sf)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	while (fgets(buffer, MAX_SIZE, Sf))
 	{
 		tracker++;
 		opcode = strtok(buffer, DELIM);
-		if (opcode == NULL || opcode[0] == '#')
+		if (comm(opcode, tracker) == 1)
 		{
 			continue;
 		}
@@ -71,4 +71,19 @@ int opcode_finder(stack_t **stck, char *opcode, int tracker)
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", tracker, opcode);
 	exit(EXIT_FAILURE);
+}
+/**
+ * is_comm - is comment
+ * @token: token
+ * @line_count: num of lines
+ * Return: integer
+ */
+int comm(char *tok, int count)
+{
+	if (tok == NULL || tok[0] == '#')
+	{
+		count++;
+		return (1);
+	}
+	return (-1);
 }

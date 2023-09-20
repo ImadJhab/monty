@@ -1,4 +1,5 @@
 #include "monty.h"
+int push_val;
 /**
  * push - push a node into the stack
  * @stck: double pointer to a list
@@ -16,7 +17,7 @@ void push(char *ln, stack_t **stck, unsigned int tracker)
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(ln);
-	PUSH_VAL = n;
+	push_val = n;
 	help_push(stck, tracker);
 }
 /**
@@ -36,7 +37,7 @@ void help_push(stack_t **stck, unsigned int tracker)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new_stack->n = PUSH_VAL;
+	new_stack->n = push_val;
 	new_stack->prev = NULL;
 	new_stack->next = *stck;
 	if (*stck)

@@ -8,7 +8,7 @@
 
 #define MAX_SIZE 1024
 
-extern int PUSH_VAL;
+extern int push_val;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)

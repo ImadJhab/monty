@@ -23,13 +23,13 @@ int main(int argc, char **argv)
 	if (Sf == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		return (EXIT_FAILURE);
+		exit(1);
 	}
 	while (fgets(buffer, MAX_SIZE, Sf))
 	{
 		tracker++;
 		opcode = strtok(buffer, DELIM);
-		if (opcode[0] == '#')
+		if (opcode == NULL || opcode[0] == '#')
 		{
 			continue;
 		}

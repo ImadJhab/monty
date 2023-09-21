@@ -14,6 +14,6 @@ void sub(stack_t **stck, unsigned int tracker)
 		exit(EXIT_FAILURE);
 	}
 	subtract = (*stck)->n - (*stck)->next->n;
-	pop_stack(stck, tracker);
+	pop(stck, tracker);
 	(*stck)->n = subtract;
 }

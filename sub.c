@@ -13,7 +13,9 @@ void sub(stack_t **stck, unsigned int tracker)
 		fprintf(stderr, "L%d: can't sub, stack too short\n", tracker);
 		exit(EXIT_FAILURE);
 	}
+	(*stck) = (*stck)->next;
 	subtract = (*stck)->n - (*stck)->next->n;
-	pop(stck, tracker);
 	(*stck)->n = subtract;
+	free((*stck)->prev);
+	(*stck)->prev == NULL;
 }

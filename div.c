@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * div - divides the second top element of the stack by the first
+ * _div - divides the second top element of the stack by the first
  * @stck: stack
  * @tracker: tracker
 */

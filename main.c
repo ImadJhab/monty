@@ -33,7 +33,11 @@ int main(int argc, char **argv)
 		{
 			continue;
 		}
-		if (opcode)
+		if (strcmp(opcode, "nop") == 0)
+		{
+			continue;
+		}
+		else if (opcode)
 		{
 			opcode_finder(opcode, &stack, tracker);
 		}

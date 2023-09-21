@@ -53,5 +53,7 @@ void add(stack_t **stck, unsigned int tracker);
 void sub(stack_t **stck, unsigned int tracker);
 void _div(stack_t **stck, unsigned int tracker);
 void mul(stack_t **stck, unsigned int tracker);
+void mod(stack_t **stck, unsigned int tracker);
+
 
 #endif

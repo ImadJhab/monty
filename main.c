@@ -61,6 +61,8 @@ void opcode_finder(char *opcode, stack_t **stck, int tracker)
 		pop(stck, tracker);
 	else if (strcmp(opcode, "swap") == 0)
 		swap(stck, tracker);
+	else if (strcmp(opcode, "add") == 0)
+		add(stck, tracker);
 	else
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", tracker, opcode);

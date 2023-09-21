@@ -51,5 +51,6 @@ void pop(stack_t **stck, unsigned int tracker);
 void swap(stack_t **stck, unsigned int tracker);
 void add(stack_t **stck, unsigned int tracker);
 void sub(stack_t **stck, unsigned int tracker);
+void _div(stack_t **stck, unsigned int tracker);
 
 #endif

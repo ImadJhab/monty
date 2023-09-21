@@ -10,7 +10,7 @@ void add(stack_t **stck, unsigned int tracker)
 
 	if (*stck == NULL || (*stck)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short", tracker);
+		fprintf(stderr, "L%d: can't add, stack too short\n", tracker);
 		exit(EXIT_FAILURE);
 	}
 	total = (*stck)->n + (*stck)->next->n;

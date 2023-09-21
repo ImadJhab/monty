@@ -1,4 +1,9 @@
 #include "monty.h"
+/**
+ * swap - swaps the top two elements of the stack
+ * @stck: stack
+ * @tracker: tracker
+*/
 void swap(stack_t **stck, unsigned int tracker)
 {
 	int counter;
